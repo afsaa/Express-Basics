@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 8080;
+const monitor = require("pg-monitor");
 
 const dbConfig = {
   "host": "localhost",
@@ -23,6 +24,8 @@ const initOptions = {
     }
   }
 };
+
+monitor.attach(initOptions);
 
 const pgp = require("pg-promise")(initOptions);
 const db = pgp(dbConfig);
