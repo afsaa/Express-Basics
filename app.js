@@ -26,6 +26,7 @@ const initOptions = {
 };
 
 monitor.attach(initOptions);
+monitor.setTheme("matrix");
 
 const pgp = require("pg-promise")(initOptions);
 const db = pgp(dbConfig);
