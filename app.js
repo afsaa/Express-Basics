@@ -38,7 +38,7 @@ app.get("/api/hello_world", (req, res) => {
 });
 
 app.get("/api/jobs", (req, res) => {
-  db.any("SELECT * FROM jobs", [true])
+  db.any("SELECT name, description FROM jobs", [true])
     .then(data => {
       res.json(data);
     })
